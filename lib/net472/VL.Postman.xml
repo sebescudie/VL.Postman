@@ -1,0 +1,605 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>VL.Postman</name>
+    </assembly>
+    <members>
+        <member name="P:VL.Postman.Coordinate.Item">
+            <summary>
+            Items are the basic unit for a Postman collection. You can think of them as corresponding
+            to a single API endpoint. Each Item has one request and may have multiple API responses
+            associated with it.
+            </summary>
+        </member>
+        <member name="T:VL.Postman.Auth">
+            <summary>
+            Represents authentication helpers provided by Postman
+            </summary>
+        </member>
+        <member name="P:VL.Postman.Auth.Apikey">
+            <summary>
+            The attributes for API Key Authentication.
+            </summary>
+        </member>
+        <member name="P:VL.Postman.Auth.Awsv4">
+            <summary>
+            The attributes for [AWS
+            Auth](http://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html).
+            </summary>
+        </member>
+        <member name="P:VL.Postman.Auth.Basic">
+            <summary>
+            The attributes for [Basic
+            Authentication](https://en.wikipedia.org/wiki/Basic_access_authentication).
+            </summary>
+        </member>
+        <member name="P:VL.Postman.Auth.Bearer">
+            <summary>
+            The helper attributes for [Bearer Token
+            Authentication](https://tools.ietf.org/html/rfc6750)
+            </summary>
+        </member>
+        <member name="P:VL.Postman.Auth.Digest">
+            <summary>
+            The attributes for [Digest
+            Authentication](https://en.wikipedia.org/wiki/Digest_access_authentication).
+            </summary>
+        </member>
+        <member name="P:VL.Postman.Auth.Edgegrid">
+            <summary>
+            The attributes for [Akamai EdgeGrid
+            Authentication](https://developer.akamai.com/legacy/introduction/Client_Auth.html).
+            </summary>
+        </member>
+        <member name="P:VL.Postman.Auth.Hawk">
+            <summary>
+            The attributes for [Hawk Authentication](https://github.com/hueniverse/hawk)
+            </summary>
+        </member>
+        <member name="P:VL.Postman.Auth.Ntlm">
+            <summary>
+            The attributes for [NTLM
+            Authentication](https://msdn.microsoft.com/en-us/library/cc237488.aspx)
+            </summary>
+        </member>
+        <member name="P:VL.Postman.Auth.Oauth1">
+            <summary>
+            The attributes for [OAuth2](https://oauth.net/1/)
+            </summary>
+        </member>
+        <member name="P:VL.Postman.Auth.Oauth2">
+            <summary>
+            Helper attributes for [OAuth2](https://oauth.net/2/)
+            </summary>
+        </member>
+        <member name="T:VL.Postman.ApikeyElement">
+            <summary>
+            Represents an attribute for any authorization method provided by Postman. For example
+            `username` and `password` are set as auth attributes for Basic Authentication method.
+            </summary>
+        </member>
+        <member name="T:VL.Postman.Event">
+             <summary>
+             Postman allows you to configure scripts to run when specific events occur. These scripts
+             are stored here, and can be referenced in the collection by their ID.
+            
+             Defines a script associated with an associated event name
+             </summary>
+        </member>
+        <member name="P:VL.Postman.Event.Disabled">
+            <summary>
+            Indicates whether the event is disabled. If absent, the event is assumed to be enabled.
+            </summary>
+        </member>
+        <member name="P:VL.Postman.Event.Id">
+            <summary>
+            A unique identifier for the enclosing event.
+            </summary>
+        </member>
+        <member name="P:VL.Postman.Event.Listen">
+            <summary>
+            Can be set to `test` or `prerequest` for test scripts or pre-request scripts respectively.
+            </summary>
+        </member>
+        <member name="T:VL.Postman.Script">
+            <summary>
+            A script is a snippet of Javascript code that can be used to to perform setup or teardown
+            operations on a particular response.
+            </summary>
+        </member>
+        <member name="P:VL.Postman.Script.Id">
+            <summary>
+            A unique, user defined identifier that can  be used to refer to this script from requests.
+            </summary>
+        </member>
+        <member name="P:VL.Postman.Script.Name">
+            <summary>
+            Script name
+            </summary>
+        </member>
+        <member name="P:VL.Postman.Script.Type">
+            <summary>
+            Type of the script. E.g: 'text/javascript'
+            </summary>
+        </member>
+        <member name="P:VL.Postman.UrlClass.Hash">
+            <summary>
+            Contains the URL fragment (if any). Usually this is not transmitted over the network, but
+            it could be useful to store this in some cases.
+            </summary>
+        </member>
+        <member name="P:VL.Postman.UrlClass.Host">
+            <summary>
+            The host for the URL, E.g: api.yourdomain.com. Can be stored as a string or as an array
+            of strings.
+            </summary>
+        </member>
+        <member name="P:VL.Postman.UrlClass.Port">
+            <summary>
+            The port number present in this URL. An empty value implies 80/443 depending on whether
+            the protocol field contains http/https.
+            </summary>
+        </member>
+        <member name="P:VL.Postman.UrlClass.Protocol">
+            <summary>
+            The protocol associated with the request, E.g: 'http'
+            </summary>
+        </member>
+        <member name="P:VL.Postman.UrlClass.Query">
+            <summary>
+            An array of QueryParams, which is basically the query string part of the URL, parsed into
+            separate variables
+            </summary>
+        </member>
+        <member name="P:VL.Postman.UrlClass.Raw">
+            <summary>
+            The string representation of the request URL, including the protocol, host, path, hash,
+            query parameter(s) and path variable(s).
+            </summary>
+        </member>
+        <member name="P:VL.Postman.UrlClass.Variable">
+            <summary>
+            Postman supports path variables with the syntax `/path/:variableName/to/somewhere`. These
+            variables are stored in this field.
+            </summary>
+        </member>
+        <member name="P:VL.Postman.QueryParam.Disabled">
+            <summary>
+            If set to true, the current query parameter will not be sent with the request.
+            </summary>
+        </member>
+        <member name="P:VL.Postman.Description.Content">
+            <summary>
+            The content of the description goes here, as a raw string.
+            </summary>
+        </member>
+        <member name="P:VL.Postman.Description.Type">
+            <summary>
+            Holds the mime type of the raw description content. E.g: 'text/markdown' or 'text/html'.
+            The type is used to correctly render the description when generating documentation, or in
+            the Postman app.
+            </summary>
+        </member>
+        <member name="P:VL.Postman.Description.Version">
+            <summary>
+            Description can have versions associated with it, which should be put in this property.
+            </summary>
+        </member>
+        <member name="T:VL.Postman.Variable">
+             <summary>
+             Collection variables allow you to define a set of variables, that are a *part of the
+             collection*, as opposed to environments, which are separate entities.
+             *Note: Collection variables must not contain any sensitive information.*
+            
+             Using variables in your Postman requests eliminates the need to duplicate requests, which
+             can save a lot of time. Variables can be defined, and referenced to from any part of a
+             request.
+             </summary>
+        </member>
+        <member name="P:VL.Postman.Variable.Id">
+            <summary>
+            A variable ID is a unique user-defined value that identifies the variable within a
+            collection. In traditional terms, this would be a variable name.
+            </summary>
+        </member>
+        <member name="P:VL.Postman.Variable.Key">
+            <summary>
+            A variable key is a human friendly value that identifies the variable within a
+            collection. In traditional terms, this would be a variable name.
+            </summary>
+        </member>
+        <member name="P:VL.Postman.Variable.Name">
+            <summary>
+            Variable name
+            </summary>
+        </member>
+        <member name="P:VL.Postman.Variable.System">
+            <summary>
+            When set to true, indicates that this variable has been set by Postman
+            </summary>
+        </member>
+        <member name="P:VL.Postman.Variable.Type">
+            <summary>
+            A variable may have multiple types. This field specifies the type of the variable.
+            </summary>
+        </member>
+        <member name="P:VL.Postman.Variable.Value">
+            <summary>
+            The value that a variable holds in this collection. Ultimately, the variables will be
+            replaced by this value, when say running a set of requests from a collection
+            </summary>
+        </member>
+        <member name="T:VL.Postman.Information">
+            <summary>
+            Detailed description of the info block
+            </summary>
+        </member>
+        <member name="P:VL.Postman.Information.PostmanId">
+            <summary>
+            Every collection is identified by the unique value of this field. The value of this field
+            is usually easiest to generate using a UID generator function. If you already have a
+            collection, it is recommended that you maintain the same id since changing the id usually
+            implies that is a different collection than it was originally.
+            *Note: This field exists for compatibility reasons with Collection Format V1.*
+            </summary>
+        </member>
+        <member name="P:VL.Postman.Information.Name">
+            <summary>
+            A collection's friendly name is defined by this field. You would want to set this field
+            to a value that would allow you to easily identify this collection among a bunch of other
+            collections, as such outlining its usage or content.
+            </summary>
+        </member>
+        <member name="P:VL.Postman.Information.Schema">
+            <summary>
+            This should ideally hold a link to the Postman schema that is used to validate this
+            collection. E.g: https://schema.getpostman.com/collection/v1
+            </summary>
+        </member>
+        <member name="P:VL.Postman.CollectionVersionClass.Identifier">
+            <summary>
+            A human friendly identifier to make sense of the version numbers. E.g: 'beta-3'
+            </summary>
+        </member>
+        <member name="P:VL.Postman.CollectionVersionClass.Major">
+            <summary>
+            Increment this number if you make changes to the collection that changes its behaviour.
+            E.g: Removing or adding new test scripts. (partly or completely).
+            </summary>
+        </member>
+        <member name="P:VL.Postman.CollectionVersionClass.Minor">
+            <summary>
+            You should increment this number if you make changes that will not break anything that
+            uses the collection. E.g: removing a folder.
+            </summary>
+        </member>
+        <member name="P:VL.Postman.CollectionVersionClass.Patch">
+            <summary>
+            Ideally, minor changes to a collection should result in the increment of this number.
+            </summary>
+        </member>
+        <member name="T:VL.Postman.Items">
+             <summary>
+             Items are entities which contain an actual HTTP request, and sample responses attached to
+             it.
+            
+             One of the primary goals of Postman is to organize the development of APIs. To this end,
+             it is necessary to be able to group requests together. This can be achived using
+             'Folders'. A folder just is an ordered set of requests.
+             </summary>
+        </member>
+        <member name="P:VL.Postman.Items.Id">
+            <summary>
+            A unique ID that is used to identify collections internally
+            </summary>
+        </member>
+        <member name="P:VL.Postman.Items.Name">
+             <summary>
+             A human readable identifier for the current item.
+            
+             A folder's friendly name is defined by this field. You would want to set this field to a
+             value that would allow you to easily identify this folder.
+             </summary>
+        </member>
+        <member name="P:VL.Postman.Items.Item">
+            <summary>
+            Items are entities which contain an actual HTTP request, and sample responses attached to
+            it. Folders may contain many items.
+            </summary>
+        </member>
+        <member name="T:VL.Postman.Body">
+            <summary>
+            This field contains the data usually contained in the request body.
+            </summary>
+        </member>
+        <member name="P:VL.Postman.Body.Disabled">
+            <summary>
+            When set to true, prevents request body from being sent.
+            </summary>
+        </member>
+        <member name="P:VL.Postman.Body.Mode">
+            <summary>
+            Postman stores the type of data associated with this request in this field.
+            </summary>
+        </member>
+        <member name="P:VL.Postman.Body.Options">
+            <summary>
+            Additional configurations and options set for various body modes.
+            </summary>
+        </member>
+        <member name="P:VL.Postman.FormParameter.ContentType">
+            <summary>
+            Override Content-Type header of this form data entity.
+            </summary>
+        </member>
+        <member name="P:VL.Postman.FormParameter.Disabled">
+            <summary>
+            When set to true, prevents this form data entity from being sent.
+            </summary>
+        </member>
+        <member name="T:VL.Postman.Certificate">
+            <summary>
+            A representation of an ssl certificate
+            </summary>
+        </member>
+        <member name="P:VL.Postman.Certificate.Cert">
+            <summary>
+            An object containing path to file certificate, on the file system
+            </summary>
+        </member>
+        <member name="P:VL.Postman.Certificate.Key">
+            <summary>
+            An object containing path to file containing private key, on the file system
+            </summary>
+        </member>
+        <member name="P:VL.Postman.Certificate.Matches">
+            <summary>
+            A list of Url match pattern strings, to identify Urls this certificate can be used for.
+            </summary>
+        </member>
+        <member name="P:VL.Postman.Certificate.Name">
+            <summary>
+            A name for the certificate for user reference
+            </summary>
+        </member>
+        <member name="P:VL.Postman.Certificate.Passphrase">
+            <summary>
+            The passphrase for the certificate
+            </summary>
+        </member>
+        <member name="T:VL.Postman.Cert">
+            <summary>
+            An object containing path to file certificate, on the file system
+            </summary>
+        </member>
+        <member name="P:VL.Postman.Cert.Src">
+            <summary>
+            The path to file containing key for certificate, on the file system
+            </summary>
+        </member>
+        <member name="T:VL.Postman.Key">
+            <summary>
+            An object containing path to file containing private key, on the file system
+            </summary>
+        </member>
+        <member name="P:VL.Postman.Key.Src">
+            <summary>
+            The path to file containing key for certificate, on the file system
+            </summary>
+        </member>
+        <member name="T:VL.Postman.Header">
+             <summary>
+             A representation for a list of headers
+            
+             Represents a single HTTP Header
+             </summary>
+        </member>
+        <member name="P:VL.Postman.Header.Disabled">
+            <summary>
+            If set to true, the current header will not be sent with requests.
+            </summary>
+        </member>
+        <member name="P:VL.Postman.Header.Key">
+            <summary>
+            This holds the LHS of the HTTP Header, e.g ``Content-Type`` or ``X-Custom-Header``
+            </summary>
+        </member>
+        <member name="P:VL.Postman.Header.Value">
+            <summary>
+            The value (or the RHS) of the Header is stored in this field.
+            </summary>
+        </member>
+        <member name="T:VL.Postman.ProxyConfig">
+            <summary>
+            Using the Proxy, you can configure your custom proxy into the postman for particular url
+            match
+            </summary>
+        </member>
+        <member name="P:VL.Postman.ProxyConfig.Disabled">
+            <summary>
+            When set to true, ignores this proxy configuration entity
+            </summary>
+        </member>
+        <member name="P:VL.Postman.ProxyConfig.Host">
+            <summary>
+            The proxy server host
+            </summary>
+        </member>
+        <member name="P:VL.Postman.ProxyConfig.Match">
+            <summary>
+            The Url match for which the proxy config is defined
+            </summary>
+        </member>
+        <member name="P:VL.Postman.ProxyConfig.Port">
+            <summary>
+            The proxy server port
+            </summary>
+        </member>
+        <member name="P:VL.Postman.ProxyConfig.Tunnel">
+            <summary>
+            The tunneling details for the proxy config
+            </summary>
+        </member>
+        <member name="P:VL.Postman.ResponseClass.Body">
+            <summary>
+            The raw text of the response.
+            </summary>
+        </member>
+        <member name="P:VL.Postman.ResponseClass.Code">
+            <summary>
+            The numerical response code, example: 200, 201, 404, etc.
+            </summary>
+        </member>
+        <member name="P:VL.Postman.ResponseClass.Id">
+            <summary>
+            A unique, user defined identifier that can  be used to refer to this response from
+            requests.
+            </summary>
+        </member>
+        <member name="P:VL.Postman.ResponseClass.ResponseTime">
+            <summary>
+            The time taken by the request to complete. If a number, the unit is milliseconds. If the
+            response is manually created, this can be set to `null`.
+            </summary>
+        </member>
+        <member name="P:VL.Postman.ResponseClass.Status">
+            <summary>
+            The response status, e.g: '200 OK'
+            </summary>
+        </member>
+        <member name="P:VL.Postman.ResponseClass.Timings">
+            <summary>
+            Set of timing information related to request and response in milliseconds
+            </summary>
+        </member>
+        <member name="T:VL.Postman.Cookie">
+            <summary>
+            A Cookie, that follows the [Google Chrome
+            format](https://developer.chrome.com/extensions/cookies)
+            </summary>
+        </member>
+        <member name="P:VL.Postman.Cookie.Domain">
+            <summary>
+            The domain for which this cookie is valid.
+            </summary>
+        </member>
+        <member name="P:VL.Postman.Cookie.Expires">
+            <summary>
+            When the cookie expires.
+            </summary>
+        </member>
+        <member name="P:VL.Postman.Cookie.Extensions">
+            <summary>
+            Custom attributes for a cookie go here, such as the [Priority
+            Field](https://code.google.com/p/chromium/issues/detail?id=232693)
+            </summary>
+        </member>
+        <member name="P:VL.Postman.Cookie.HostOnly">
+            <summary>
+            True if the cookie is a host-only cookie. (i.e. a request's URL domain must exactly match
+            the domain of the cookie).
+            </summary>
+        </member>
+        <member name="P:VL.Postman.Cookie.HttpOnly">
+            <summary>
+            Indicates if this cookie is HTTP Only. (if True, the cookie is inaccessible to
+            client-side scripts)
+            </summary>
+        </member>
+        <member name="P:VL.Postman.Cookie.Name">
+            <summary>
+            This is the name of the Cookie.
+            </summary>
+        </member>
+        <member name="P:VL.Postman.Cookie.Path">
+            <summary>
+            The path associated with the Cookie.
+            </summary>
+        </member>
+        <member name="P:VL.Postman.Cookie.Secure">
+            <summary>
+            Indicates if the 'secure' flag is set on the Cookie, meaning that it is transmitted over
+            secure connections only. (typically HTTPS)
+            </summary>
+        </member>
+        <member name="P:VL.Postman.Cookie.Session">
+            <summary>
+            True if the cookie is a session cookie.
+            </summary>
+        </member>
+        <member name="P:VL.Postman.Cookie.Value">
+            <summary>
+            The value of the Cookie.
+            </summary>
+        </member>
+        <member name="T:VL.Postman.VariableType">
+            <summary>
+            A variable may have multiple types. This field specifies the type of the variable.
+            </summary>
+        </member>
+        <member name="T:VL.Postman.Mode">
+            <summary>
+            Postman stores the type of data associated with this request in this field.
+            </summary>
+        </member>
+        <member name="T:VL.Postman.Host">
+            <summary>
+            The host for the URL, E.g: api.yourdomain.com. Can be stored as a string or as an array
+            of strings.
+            </summary>
+        </member>
+        <member name="T:VL.Postman.PathElement">
+            <summary>
+            The complete path of the current url, broken down into segments. A segment could be a
+            string, or a path variable.
+            </summary>
+        </member>
+        <member name="T:VL.Postman.DescriptionUnion">
+            <summary>
+            A Description can be a raw text, or be an object, which holds the description along with
+            its format.
+            </summary>
+        </member>
+        <member name="T:VL.Postman.Url">
+            <summary>
+            If object, contains the complete broken-down URL for this request. If string, contains
+            the literal request URL.
+            </summary>
+        </member>
+        <member name="T:VL.Postman.CollectionVersion">
+            <summary>
+            Postman allows you to version your collections as they grow, and this field holds the
+            version number. While optional, it is recommended that you use this field to its fullest
+            extent!
+            </summary>
+        </member>
+        <member name="T:VL.Postman.RequestUnion">
+            <summary>
+            A request represents an HTTP request. If a string, the string is assumed to be the
+            request URL and the method is assumed to be 'GET'.
+            </summary>
+        </member>
+        <member name="T:VL.Postman.Expires">
+            <summary>
+            When the cookie expires.
+            </summary>
+        </member>
+        <member name="T:VL.Postman.HeaderElement">
+            <summary>
+            No HTTP request is complete without its headers, and the same is true for a Postman
+            request. This field is an array containing all the headers.
+            </summary>
+        </member>
+        <member name="T:VL.Postman.ResponseTime">
+            <summary>
+            The time taken by the request to complete. If a number, the unit is milliseconds. If the
+            response is manually created, this can be set to `null`.
+            </summary>
+        </member>
+        <member name="T:VL.Postman.Response">
+            <summary>
+            A response represents an HTTP response.
+            </summary>
+        </member>
+    </members>
+</doc>

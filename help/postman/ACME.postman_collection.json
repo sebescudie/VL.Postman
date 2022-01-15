@@ -1,0 +1,49 @@
+{
+	"info": {
+		"_postman_id": "b5f019ed-75b7-4622-8613-fd1b93a3e7b3",
+		"name": "ACME",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GetName",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.acme.com/v1/get-name?access_token={{Access token}}&name=michel",
+					"protocol": "https",
+					"host": [
+						"api",
+						"acme",
+						"com"
+					],
+					"path": [
+						"v1",
+						"get-name"
+					],
+					"query": [
+						{
+							"key": "access_token",
+							"value": "{{Access token}}",
+							"description": "Access token"
+						},
+						{
+							"key": "name",
+							"value": "michel",
+							"description": "The name of the person to retrieve"
+						}
+					]
+				},
+				"description": "Retrieves the name of a person"
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "Access token",
+			"value": "DEADBEEF"
+		}
+	]
+}

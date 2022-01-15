@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Document xmlns:p="property" Id="LvG9saUv7y8PQ7zMSt33hG" LanguageVersion="2021.4.5.752" Version="0.128">
+  <Patch Id="G4geX6iwueqPN3LfImBVfF">
+    <Canvas Id="NMz1iBjnWyDNA72BIUUXw1" DefaultCategory="Main" BordersChecked="false" CanvasType="FullCategory" />
+    <!--
+
+    ************************ Application ************************
+
+-->
+    <Node Name="Application" Bounds="100,100" Id="LEWMmsVD4l7PykVm286eFM">
+      <p:NodeReference>
+        <Choice Kind="ContainerDefinition" Name="Process" />
+        <FullNameCategoryReference ID="Primitive" />
+      </p:NodeReference>
+      <Patch Id="Mrt2rrMThuaPHRfxCNdYIZ">
+        <Canvas Id="A7U2KJqgp8cN1Sr6zs3qbA" CanvasType="Group" />
+        <Patch Id="ARuywGZ6ZkkPYRWxV2iEkq" Name="Create" />
+        <Patch Id="IhumqqraxBtOcLoqKrUIsP" Name="Update" />
+        <ProcessDefinition Id="LP1su719eurNT52gyC0qNl">
+          <Fragment Id="DYrqBpBRzw0MjZsF8ban7b" Patch="ARuywGZ6ZkkPYRWxV2iEkq" Enabled="true" />
+          <Fragment Id="Vidy3ql39yiNd2qjQucmhy" Patch="IhumqqraxBtOcLoqKrUIsP" Enabled="true" />
+        </ProcessDefinition>
+      </Patch>
+    </Node>
+  </Patch>
+  <NugetDependency Id="MxTaf8j5He8OPMHWbyWWGc" Location="VL.CoreLib" Version="2021.4.5-0752-g55d13bd1fb" />
+  <PlatformDependency Id="ApBPVkduttJPOCS5X4Vt2Z" Location="./lib/net472/VL.Postman.dll" />
+  <NodeFactoryDependency Id="EQe0zsCLOQoMHKFNfhIaJP" Location="VL.Postman-Factory" IsForward="true" />
+</Document>

@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>D:\documents\dev\vvvv\libraries\VL.Postman\lib\VL.Postman.xml</DocumentationFile>
+    <OutputPath>D:\documents\dev\vvvv\libraries\VL.Postman\lib\</OutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="VL.Core" Version="2021.4.0" />
+    <PackageReference Include="VL.Lang" Version="2021.4.0" />
+  </ItemGroup>
+
+</Project>
