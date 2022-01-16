@@ -13,6 +13,6 @@ namespace VL.Postman
             factory.RegisterNodeFactory(postmanFactory);
         }
 
-        static IVLNodeDescriptionFactory postmanFactory = new PostmanFactory();
+        static IVLNodeDescriptionFactory postmanFactory = new PostmanNodeFactory();
     }
 }

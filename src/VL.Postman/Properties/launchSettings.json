@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "VL.Postman": {
+      "commandName": "Executable",
+      "executablePath": "C:\\Program Files\\vvvv\\vvvv_gamma_2021.4.5-0752-g55d13bd1fb\\vvvv.exe",
+      "commandLineArgs": "-o \"D:\\documents\\dev\\vvvv\\libraries\\VL.Postman\\help\\HowTo Use a Postman collection.vl\" --package-repositories \"D:\\documents\\dev\\vvvv\\libraries\""
+    }
+  }
+}

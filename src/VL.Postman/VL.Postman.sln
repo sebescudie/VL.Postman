@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31321.278
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VL.Postman", "VL.Postman.csproj", "{7CDD6B3E-8ED6-4346-90E6-078B500D19DC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VL.Postman", "VL.Postman.csproj", "{7CDD6B3E-8ED6-4346-90E6-078B500D19DC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PostmanSchemaDebug", "..\PostmanSchemaDebug\PostmanSchemaDebug.csproj", "{BD92D23C-787A-46B1-A266-AAF573A456DB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{7CDD6B3E-8ED6-4346-90E6-078B500D19DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7CDD6B3E-8ED6-4346-90E6-078B500D19DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7CDD6B3E-8ED6-4346-90E6-078B500D19DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD92D23C-787A-46B1-A266-AAF573A456DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD92D23C-787A-46B1-A266-AAF573A456DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD92D23C-787A-46B1-A266-AAF573A456DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD92D23C-787A-46B1-A266-AAF573A456DB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
