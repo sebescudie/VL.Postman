@@ -11,17 +11,20 @@ namespace VL.Postman
         // Fields
         bool FInitialized;
         bool FError;
-        string FName;
+
+        string FCategory;
+
         string FSummary;
 
         // Inputs and outputs
         List<PinDescription> inputs = new List<PinDescription>();
         List<PinDescription> outputs = new List<PinDescription>();
 
-        public PostmanNodeDescription(IVLNodeDescriptionFactory factory, string name)
+        public PostmanNodeDescription(IVLNodeDescriptionFactory factory, string name, string category)
         {
             Factory = factory;
-            FName = name;
+            Name = name;
+            FCategory = category;
         }
 
         void Init()
@@ -46,7 +49,7 @@ namespace VL.Postman
 
         public IVLNodeDescriptionFactory Factory { get; }
         public string Name { get; }
-        public string Category => "IO.HTTP";
+        public string Category => FCategory;
         public bool Fragmented => false;
 
         public IReadOnlyList<IVLPinDescription> Inputs

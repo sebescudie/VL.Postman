@@ -1,21 +1,21 @@
 {
 	"info": {
 		"_postman_id": "b5f019ed-75b7-4622-8613-fd1b93a3e7b3",
-		"name": "TestCollection",
+		"name": "MyLibrary",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "A",
+			"name": "CMS",
 			"item": [
 				{
-					"name": "AA",
+					"name": "Products",
 					"item": [
 						{
-							"name": "AAA",
+							"name": "SpecialProducts",
 							"item": [
 								{
-									"name": "Seriously",
+									"name": "GetSpecialProducts",
 									"request": {
 										"method": "GET",
 										"header": []
@@ -35,7 +35,7 @@
 					]
 				},
 				{
-					"name": "GetCmsVersion",
+					"name": "GetCmsMetrics",
 					"request": {
 						"method": "GET",
 						"header": []
@@ -45,13 +45,13 @@
 			]
 		},
 		{
-			"name": "B",
+			"name": "Engine",
 			"item": [
 				{
-					"name": "BA",
+					"name": "API",
 					"item": [
 						{
-							"name": "GetCustomizationImage",
+							"name": "GetImage",
 							"request": {
 								"method": "GET",
 								"header": []
@@ -63,7 +63,7 @@
 			]
 		},
 		{
-			"name": "Test",
+			"name": "RootNode",
 			"request": {
 				"method": "GET",
 				"header": []

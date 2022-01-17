@@ -43,10 +43,21 @@ namespace VL.Postman
                 {
                     Console.WriteLine(file);
                     var coordinate = Coordinate.FromJson(System.IO.File.ReadAllText(file));
-                    // A folder is also an item so we make sure we only use items that have a request   
-                    foreach (var request in coordinate.Item.Where(x => x.Request != null))
+                    
+                    // We iterate over all the elements. These could be folder or requests, who knows.
+                    foreach (var item in coordinate.Item)
                     {
-                        builder.Add(new PostmanNodeDescription(this, request.Name));
+                        // Well, we do
+                        if(Utils.IsFolderItem(item))
+                        {
+                            // If we are in a folder, we iterate over all its queries and make nodes out of it
+                            Utils.CreateNodesInFolder(item, coordinate.Info.Name, builder, this);
+                        }
+                        else
+                        {
+                            // Otherwise, we just create the node
+                            Utils.CreateNode(item, coordinate.Info.Name, builder, this);
+                        }
                     }
                 }
             }
