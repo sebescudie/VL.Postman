@@ -38,7 +38,7 @@ namespace VL.Postman
 
         public static void CreateNode(Items item, string category, ImmutableArray<IVLNodeDescription>.Builder builder, IVLNodeDescriptionFactory factory)
         {
-            builder.Add(new PostmanNodeDescription(factory, item.Name, category));
+            builder.Add(new PostmanNodeDescription(factory, item.Name, category, item));
         }
     }
 }

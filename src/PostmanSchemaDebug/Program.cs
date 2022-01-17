@@ -22,6 +22,7 @@ namespace PostmanSchemaDebug
                 {
                     // Otherwise, it means we're at the root level so just create the node
                     CreateNode(item, coordinate.Info.Name);
+
                 }
             }
 
@@ -48,6 +49,10 @@ namespace PostmanSchemaDebug
             void CreateNode(Items item, string category)
             {
                 Console.WriteLine(item.Name + "(" + category + ")");
+                foreach (var input in item.Request.Value.RequestClass.Url.Value.UrlClass.Query)
+                {
+                    Console.WriteLine(input.Key + "//" + input.Value + "//" + input.Description.Value.String);
+                }
             }
         }
     }

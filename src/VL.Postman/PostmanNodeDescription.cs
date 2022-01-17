@@ -13,18 +13,20 @@ namespace VL.Postman
         bool FError;
 
         string FCategory;
-
         string FSummary;
+
+        public Items Item { get; set; }
 
         // Inputs and outputs
         List<PinDescription> inputs = new List<PinDescription>();
         List<PinDescription> outputs = new List<PinDescription>();
 
-        public PostmanNodeDescription(IVLNodeDescriptionFactory factory, string name, string category)
+        public PostmanNodeDescription(IVLNodeDescriptionFactory factory, string name, string category, Items item)
         {
             Factory = factory;
             Name = name;
             FCategory = category;
+            Item = item;
         }
 
         void Init()
@@ -34,7 +36,7 @@ namespace VL.Postman
 
             try
             {
-                // This is where we retrieve stuff from the json dump
+                foreach(var input in Item.)
             }
             catch (Exception e)
             {

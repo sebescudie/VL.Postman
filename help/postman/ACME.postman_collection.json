@@ -9,66 +9,37 @@
 			"name": "CMS",
 			"item": [
 				{
-					"name": "Products",
-					"item": [
-						{
-							"name": "SpecialProducts",
-							"item": [
-								{
-									"name": "GetSpecialProducts",
-									"request": {
-										"method": "GET",
-										"header": []
-									},
-									"response": []
-								}
-							]
-						},
-						{
-							"name": "GetProducts",
-							"request": {
-								"method": "GET",
-								"header": []
-							},
-							"response": []
-						}
-					]
-				},
-				{
-					"name": "GetCmsMetrics",
+					"name": "GetProducts",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "http://mycms.com/get-products?code=1234&second=lalala",
+							"protocol": "http",
+							"host": [
+								"mycms",
+								"com"
+							],
+							"path": [
+								"get-products"
+							],
+							"query": [
+								{
+									"key": "code",
+									"value": "1234",
+									"description": "The first parameter, a code "
+								},
+								{
+									"key": "second",
+									"value": "lalala",
+									"description": "The second parameter, a string"
+								}
+							]
+						}
 					},
 					"response": []
 				}
 			]
-		},
-		{
-			"name": "Engine",
-			"item": [
-				{
-					"name": "API",
-					"item": [
-						{
-							"name": "GetImage",
-							"request": {
-								"method": "GET",
-								"header": []
-							},
-							"response": []
-						}
-					]
-				}
-			]
-		},
-		{
-			"name": "RootNode",
-			"request": {
-				"method": "GET",
-				"header": []
-			},
-			"response": []
 		}
 	],
 	"variable": [
