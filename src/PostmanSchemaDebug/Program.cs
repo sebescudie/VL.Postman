@@ -16,7 +16,7 @@ namespace PostmanSchemaDebug
                 if(DebugUtils.IsFolderItem(item))
                 {
                     // If we are in a folder, we iterate over all its nodes and instantiate them
-                    CreateNodesInFolder(item, item.Name);
+                    CreateNodesInFolder(item, coordinate.Info.Name);
                 }
                 else
                 {
@@ -34,12 +34,13 @@ namespace PostmanSchemaDebug
                     if(DebugUtils.IsFolderItem(folder.Item[i]))
                     {
                         // We recurse!
-                        CreateNodesInFolder(folder.Item[i], folder.Name + "." + folder.Item[i].Name);
+                        string newCategory = category + "." + folder.Name;
+                        CreateNodesInFolder(folder.Item[i], newCategory);
                     }
-                    // Otherwise we're just looking at a query so just query it
+                    // Otherwise we're just looking at a query so just create it
                     else
                     {
-                        CreateNode(folder.Item[i], category);
+                        CreateNode(folder.Item[i], category + "." + folder.Name);
                     }
                 }
             }
