@@ -11,15 +11,6 @@ namespace VL.Postman
             return s;
         }
 
-        public PinDescription(string name, Type type, object defaultValue, string description)
-        {
-            name = BeautifyPin(name);
-            OriginalName = name;
-            Type = type;
-            DefaultValue = defaultValue;
-            Summary = description;
-        }
-
         public string Name { get; }
         public string OriginalName { get; }
         public Type Type { get; set; }
@@ -28,5 +19,14 @@ namespace VL.Postman
         public string Summary { get; }
 
         public string Remarks => "";
+
+        public PinDescription(string name, Type type, object defaultValue, string description)
+        {
+            Name = BeautifyPin(name);
+            OriginalName = name;
+            Type = type;
+            DefaultValue = defaultValue;
+            Summary = description;
+        }
     }
 }

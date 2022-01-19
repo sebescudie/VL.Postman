@@ -13,7 +13,6 @@ namespace VL.Postman
         bool FError;
 
         string FCategory;
-        string FSummary;
 
         public Items Item { get; set; }
 
@@ -36,7 +35,19 @@ namespace VL.Postman
 
             try
             {
-                foreach(var input in Item.)
+                // Iterate over the inputs
+                foreach(var input in Item.Request.Value.RequestClass.Url.Value.UrlClass.Query)
+                {
+                    inputs.Add(new PinDescription(input.Key, typeof(string), input.Value, input.Description.Value.String));
+                }
+
+                // Add the trigger pin
+                inputs.Add(new PinDescription("Execute", typeof(bool), false, "Sends a query as long as enabled"));
+                
+                // Add a fake input for now
+                outputs.Add(new PinDescription("Result", typeof(string), "", "The result"));
+
+                FInitialized = true;
             }
             catch (Exception e)
             {
@@ -44,10 +55,6 @@ namespace VL.Postman
             }
         }
 
-        void GetTypeDefaultAndDescription(dynamic pin, ref Type type, ref object dflt, ref string desc)
-        {
-            // Maybe
-        }
 
         public IVLNodeDescriptionFactory Factory { get; }
         public string Name { get; }
@@ -83,7 +90,7 @@ namespace VL.Postman
             }
         }
 
-        public string Summary => FSummary;
+        public string Summary => "";
 
         public string Remarks => "";
 
