@@ -9,12 +9,12 @@
 			"name": "CMS",
 			"item": [
 				{
-					"name": "GetProducts",
+					"name": "SuperCoolNode",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://mycms.com/get-products?code=1234&second=lalala&variable={{Access token}}",
+							"raw": "http://mycms.com/get-products?firstParam=1234&secondParam=lalala&access_token={{Access token}}",
 							"protocol": "http",
 							"host": [
 								"mycms",
@@ -25,18 +25,37 @@
 							],
 							"query": [
 								{
-									"key": "code",
+									"key": "firstParam",
 									"value": "1234",
-									"description": "The first parameter, a code"
+									"description": "The first parameter "
 								},
 								{
-									"key": "second",
+									"key": "secondParam",
 									"value": "lalala",
 									"description": "The second parameter, a string"
 								},
 								{
-									"key": "variable",
-									"value": "{{Access token}}"
+									"key": "access_token",
+									"value": "{{Access token}}",
+									"description": "Super secret token"
+								}
+							]
+						},
+						"description": "This is the description of my node"
+					},
+					"response": []
+				},
+				{
+					"name": "NormalNode",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "?id=123",
+							"query": [
+								{
+									"key": "id",
+									"value": "123"
 								}
 							]
 						}

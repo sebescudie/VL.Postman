@@ -12,6 +12,7 @@ namespace VL.Postman
         bool FInitialized;
         bool FError;
 
+        string FSummary;
         string FCategory;
 
         public Items Item { get; set; }
@@ -37,6 +38,8 @@ namespace VL.Postman
             {
                 string dflt = "";
                 string description = "";
+                
+                FSummary = "";
 
                 // Iterate over the inputs
                 foreach(var input in Item.Request.Value.RequestClass.Url.Value.UrlClass.Query)
@@ -50,6 +53,15 @@ namespace VL.Postman
                 
                 // Add a fake input for now
                 outputs.Add(new PinDescription("Result", typeof(string), "", "The result"));
+
+                if(Item.Request.Value.RequestClass.Description.HasValue)
+                {
+                    FSummary = Item.Request.Value.RequestClass.Description.Value.String;
+                }
+                else
+                {
+                    FSummary = String.Format("Runs the {0} query", Item.Name);
+                }
 
                 FInitialized = true;
             }
@@ -105,19 +117,18 @@ namespace VL.Postman
             {
                 dflt = param.Value;
             }
-            
-            // Does this work?
-            try
+
+            if(param.Description.HasValue)
             {
                 description = param.Description.Value.String;
             }
-            catch
+            else
             {
                 description = "";
             }
         }
 
-        public string Summary => "";
+        public string Summary => FSummary;
 
         public string Remarks => "";
 
