@@ -35,10 +35,14 @@ namespace VL.Postman
 
             try
             {
+                string dflt = "";
+                string description = "";
+
                 // Iterate over the inputs
                 foreach(var input in Item.Request.Value.RequestClass.Url.Value.UrlClass.Query)
                 {
-                    inputs.Add(new PinDescription(input.Key, typeof(string), input.Value, input.Description.Value.String));
+                    EnsureDefaultAndDescription(input, ref dflt, ref description);
+                    inputs.Add(new PinDescription(input.Key, typeof(string), dflt, description));
                 }
 
                 // Add the trigger pin
@@ -87,6 +91,29 @@ namespace VL.Postman
                     yield return new Message(MessageType.Warning, "Grrrrr");
                 else
                     yield break;
+            }
+        }
+
+        private void EnsureDefaultAndDescription(QueryParam param, ref string dflt, ref string description)
+        {
+            dflt = "";
+            description = "";
+
+            // If the value does not start with a mustache, it means it's not a variable
+            // In this case we just assign the value from the JSON dump
+            if(!param.Value.StartsWith("{"))
+            {
+                dflt = param.Value;
+            }
+            
+            // Does this work?
+            try
+            {
+                description = param.Description.Value.String;
+            }
+            catch
+            {
+                description = "";
             }
         }
 
