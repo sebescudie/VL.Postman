@@ -1,0 +1,88 @@
+{
+	"info": {
+		"_postman_id": "865edd43-7f5e-44e9-b4bf-3e8c25050c4b",
+		"name": "DummyAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Employee",
+			"item": [
+				{
+					"name": "GetEmployees",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://hub.dummyapis.com/employee?noofRecords=10&idStarts=1001",
+							"protocol": "https",
+							"host": [
+								"hub",
+								"dummyapis",
+								"com"
+							],
+							"path": [
+								"employee"
+							],
+							"query": [
+								{
+									"key": "noofRecords",
+									"value": "10",
+									"description": "Number of records"
+								},
+								{
+									"key": "idStarts",
+									"value": "1001",
+									"description": "Starts Id"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "GetProducts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://hub.dummyapis.com/products?noofRecords=10&idStarts=1001&currency=usd",
+							"protocol": "https",
+							"host": [
+								"hub",
+								"dummyapis",
+								"com"
+							],
+							"path": [
+								"products"
+							],
+							"query": [
+								{
+									"key": "noofRecords",
+									"value": "10",
+									"description": "Number of Records "
+								},
+								{
+									"key": "idStarts",
+									"value": "1001",
+									"description": "Starts id"
+								},
+								{
+									"key": "currency",
+									"value": "usd",
+									"description": "Currency to be used"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
