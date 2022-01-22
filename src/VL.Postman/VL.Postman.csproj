@@ -16,4 +16,8 @@
     <PackageReference Include="VL.Lang" Version="2021.4.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="System.Web" />
+  </ItemGroup>
+
 </Project>
