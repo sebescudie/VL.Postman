@@ -15,15 +15,18 @@ namespace PostmanSchemaDebug
             {
                 foreach(var query in folder.Item)
                 {
-                    Console.WriteLine("=======");
-                    Console.WriteLine(query.Name);
-                    Console.WriteLine(String.Format("Has description : {0}", query.Request.Value.RequestClass.Description.HasValue));
-                    if (query.Request.Value.RequestClass.Description.HasValue)
-                        Console.WriteLine(String.Format("Description : {0}", query.Request.Value.RequestClass.Description.Value.String));
+                    // Retrieve REST client (gets domain name + port)
+                    Uri uriAddress = new Uri(query.Request.Value.RequestClass.Url.Value.UrlClass.Raw);
+                    Console.WriteLine(uriAddress.GetLeftPart(UriPartial.Authority));
+
+                    // Get parameters as dictionary
+                    var parameters = System.Web.HttpUtility.ParseQueryString(uriAddress.Query);
+                    foreach(var param in parameters)
+                    {
+
+                    }
                 }
-
             }
-
         }
     }
 }
