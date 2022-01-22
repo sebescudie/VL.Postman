@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Reactive.Linq;
 using VL.Core;
 using VL.Core.Diagnostics;
+using RestSharp;
 
 namespace VL.Postman
 {
@@ -52,7 +53,7 @@ namespace VL.Postman
                 inputs.Add(new PinDescription("Execute", typeof(bool), false, "Sends a query as long as enabled"));
                 
                 // Add a fake input for now
-                outputs.Add(new PinDescription("Result", typeof(string), "", "The result"));
+                outputs.Add(new PinDescription("Result", typeof(RestResponse), null, "The result"));
 
                 if(Item.Request.Value.RequestClass.Description.HasValue)
                 {
