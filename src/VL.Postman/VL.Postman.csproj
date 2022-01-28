@@ -2,11 +2,22 @@
 
   <PropertyGroup>
     <TargetFramework>net472</TargetFramework>
+    <BaseOutputPath>..\..\lib</BaseOutputPath>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <DebugType>none</DebugType>
+    <ProduceReferenceAssembly>True</ProduceReferenceAssembly>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>D:\documents\dev\vvvv\libraries\VL.Postman\lib\VL.Postman.xml</DocumentationFile>
+    <DocumentationFile>D:\documents\dev\libraries\VL.Postman\lib\VL.Postman.xml</DocumentationFile>
     <OutputPath>D:\documents\dev\vvvv\libraries\VL.Postman\lib\</OutputPath>
+    <Optimize>False</Optimize>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>D:\documents\dev\libraries\VL.Postman\lib\VL.Postman.xml</DocumentationFile>
+    <OutputPath>D:\documents\dev\vvvv\libraries\VL.Postman\lib\</OutputPath>
+    <Optimize>True</Optimize>
   </PropertyGroup>
 
   <ItemGroup>
@@ -18,6 +29,21 @@
 
   <ItemGroup>
     <Reference Include="System.Web" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Settings.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
   </ItemGroup>
 
 </Project>
