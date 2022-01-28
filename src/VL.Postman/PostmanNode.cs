@@ -27,7 +27,7 @@ namespace VL.Postman
             runPin = Inputs.LastOrDefault();
             
             var rawUrl = new Uri(description.Item.Request.Value.RequestClass.Url.Value.UrlClass.Raw);
-            client = new RestClient(rawUrl.GetLeftPart(UriPartial.Authority));
+            client = new RestClient();
         }
 
         public IVLNodeDescription NodeDescription => description;
@@ -40,26 +40,28 @@ namespace VL.Postman
             if (runPin is null || !(bool)runPin.Value)
                 return;
 
-            Console.WriteLine("COUILLE");
+            Console.WriteLine("YO");
+            Console.WriteLine(String.Format("There are {0} inputs", Inputs.Length));
 
-            var request = new RestRequest();
-            request.Method = (Method)Enum.Parse(typeof(Method), description.Item.Request.Value.RequestClass.Method);
-
-            // string query = String.Join("&", Inputs.SkipLast(1).Where(i => i.Value != "").Select(i => String.Format("{0}={1}", i.Name, i.Value))).ToString();
-
-            foreach (var input in Inputs)
+            foreach(var input in Inputs)
             {
-                request.AddQueryParameter(input.Name, (string)input.Value);
-                Console.WriteLine(String.Format("Just added {0}={1}", input.Name, (string)input.Value));
+                Console.WriteLine(String.Format("{0} is {1}", input.Name, input.Value));
             }
+            
 
-            foreach(var param in request.Parameters)
-            {
-                Console.WriteLine(param.Name + " " + param.Value);
-            }
+            //var request = new RestRequest();
+            //request.Method = (Method)Enum.Parse(typeof(Method), description.Item.Request.Value.RequestClass.Method);
 
-            // Execute is deprecated, so we do this to make the node blocking
-            resultPin.Value = client.ExecuteAsync(request).GetAwaiter().GetResult();
+            string query = String.Join("&", Inputs.SkipLast(1).Where(i => (string)i.Value != "").Select(i => String.Format("{0}={1}", i.Name, i.Value))).ToString();
+            // Console.WriteLine(new Uri(description.Item.Request.Value.RequestClass.Url.Value.UrlClass.Raw).GetLeftPart(UriPartial.Authority) + query);
+
+
+            var url = description.Item.Request.Value.RequestClass.Url.Value.UrlClass;
+            Console.WriteLine(String.Format("{0}://{1}/{2}?{3}", url.Protocol, String.Join(".", url.Host.Value.StringArray), String.Join("/",url.Path.Value.AnythingArray), query));
+
+
+            //// Execute is deprecated, so we do this to make the node blocking
+            //resultPin.Value = client.ExecuteAsync(request).GetAwaiter().GetResult();
         }
 
         public void Dispose()
