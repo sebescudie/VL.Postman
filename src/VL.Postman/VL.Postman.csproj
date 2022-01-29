@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net472</TargetFramework>
@@ -22,7 +22,7 @@
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-    <PackageReference Include="RestSharp" Version="107.1.2" />
+    <PackageReference Include="RestSharp" Version="106.15.0" />
     <PackageReference Include="VL.Core" Version="2021.4.0" />
     <PackageReference Include="VL.Lang" Version="2021.4.0" />
   </ItemGroup>

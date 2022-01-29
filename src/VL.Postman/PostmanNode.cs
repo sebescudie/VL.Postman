@@ -39,26 +39,18 @@ namespace VL.Postman
             if (runPin is null || !(bool)runPin.Value)
                 return;
 
-            Console.WriteLine(String.Format("There are {0} inputs", Inputs.Length));
-
-
             var query = String.Join("&", Inputs.SkipLast(1).Where(i => (string)i.Value != "").Select(i => String.Format("{0}={1}", i.Name, i.Value))).ToString();
+            
+            // Retrieve the url from the JSON dump and build parts of the query
             var url = description.Item.Request.Value.RequestClass.Url.Value.UrlClass;
             var host = String.Join(".", url.Host.Value.StringArray);
             var path = String.Join("/", url.Path.Value.AnythingArray.Select(i => i.String));
             var fullURL = String.Format("{0}://{1}/{2}?{3}", url.Protocol, host, path, query);
 
-            var clientOptions = new RestClientOptions(fullURL){
-                ThrowOnAnyError = true,
-                Timeout = 1000
-            };
-
-            var client = new RestClient(clientOptions);
-
+            var client = new RestClient(fullURL);
             var request = new RestRequest();
-            
-            //// Execute is deprecated, so we do this to make the node blocking
-            resultPin.Value = client.ExecuteAsync(request).GetAwaiter().GetResult();
+
+            resultPin.Value = client.Execute(request);
         }
 
         public void Dispose()
