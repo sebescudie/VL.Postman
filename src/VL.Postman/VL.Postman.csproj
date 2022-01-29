@@ -10,19 +10,19 @@
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DocumentationFile>D:\documents\dev\libraries\VL.Postman\lib\VL.Postman.xml</DocumentationFile>
-    <OutputPath>D:\documents\dev\vvvv\libraries\VL.Postman\lib\</OutputPath>
+    <OutputPath>D:\documents\dev\libraries\VL.Postman\lib\</OutputPath>
     <Optimize>False</Optimize>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <DocumentationFile>D:\documents\dev\libraries\VL.Postman\lib\VL.Postman.xml</DocumentationFile>
-    <OutputPath>D:\documents\dev\vvvv\libraries\VL.Postman\lib\</OutputPath>
+    <OutputPath>D:\documents\dev\libraries\VL.Postman\lib\</OutputPath>
     <Optimize>True</Optimize>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-    <PackageReference Include="RestSharp" Version="107.1.1" />
+    <PackageReference Include="RestSharp" Version="107.1.2" />
     <PackageReference Include="VL.Core" Version="2021.4.0" />
     <PackageReference Include="VL.Lang" Version="2021.4.0" />
   </ItemGroup>

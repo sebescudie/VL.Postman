@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Document xmlns:p="property" Id="LvG9saUv7y8PQ7zMSt33hG" LanguageVersion="2021.4.5.752" Version="0.128">
+<Document xmlns:p="property" Id="LvG9saUv7y8PQ7zMSt33hG" LanguageVersion="2021.4.6.809" Version="0.128">
   <Patch Id="G4geX6iwueqPN3LfImBVfF">
     <Canvas Id="NMz1iBjnWyDNA72BIUUXw1" DefaultCategory="Main" BordersChecked="false" CanvasType="FullCategory" />
     <!--
@@ -23,7 +23,7 @@
       </Patch>
     </Node>
   </Patch>
-  <NugetDependency Id="MxTaf8j5He8OPMHWbyWWGc" Location="VL.CoreLib" Version="2021.4.5-0752-g55d13bd1fb" />
-  <PlatformDependency Id="ApBPVkduttJPOCS5X4Vt2Z" Location="./lib/net472/VL.Postman.dll" />
+  <NugetDependency Id="MxTaf8j5He8OPMHWbyWWGc" Location="VL.CoreLib" Version="2021.4.6-0809-g2ad7d96360" />
   <NodeFactoryDependency Id="EQe0zsCLOQoMHKFNfhIaJP" Location="VL.Postman-Factory" IsForward="true" />
+  <PlatformDependency Id="JWYrv9kG3C6NMAvqWpXOBl" Location="./lib/net472/VL.Postman.dll" IsForward="true" />
 </Document>

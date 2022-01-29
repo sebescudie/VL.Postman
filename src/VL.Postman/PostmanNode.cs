@@ -27,7 +27,6 @@ namespace VL.Postman
             runPin = Inputs.LastOrDefault();
             
             var rawUrl = new Uri(description.Item.Request.Value.RequestClass.Url.Value.UrlClass.Raw);
-            client = new RestClient();
         }
 
         public IVLNodeDescription NodeDescription => description;
@@ -40,28 +39,26 @@ namespace VL.Postman
             if (runPin is null || !(bool)runPin.Value)
                 return;
 
-            Console.WriteLine("YO");
             Console.WriteLine(String.Format("There are {0} inputs", Inputs.Length));
 
-            foreach(var input in Inputs)
-            {
-                Console.WriteLine(String.Format("{0} is {1}", input.Name, input.Value));
-            }
-            
 
-            //var request = new RestRequest();
-            //request.Method = (Method)Enum.Parse(typeof(Method), description.Item.Request.Value.RequestClass.Method);
-
-            string query = String.Join("&", Inputs.SkipLast(1).Where(i => (string)i.Value != "").Select(i => String.Format("{0}={1}", i.Name, i.Value))).ToString();
-            // Console.WriteLine(new Uri(description.Item.Request.Value.RequestClass.Url.Value.UrlClass.Raw).GetLeftPart(UriPartial.Authority) + query);
-
-
+            var query = String.Join("&", Inputs.SkipLast(1).Where(i => (string)i.Value != "").Select(i => String.Format("{0}={1}", i.Name, i.Value))).ToString();
             var url = description.Item.Request.Value.RequestClass.Url.Value.UrlClass;
-            Console.WriteLine(String.Format("{0}://{1}/{2}?{3}", url.Protocol, String.Join(".", url.Host.Value.StringArray), String.Join("/",url.Path.Value.AnythingArray), query));
+            var host = String.Join(".", url.Host.Value.StringArray);
+            var path = String.Join("/", url.Path.Value.AnythingArray.Select(i => i.String));
+            var fullURL = String.Format("{0}://{1}/{2}?{3}", url.Protocol, host, path, query);
 
+            var clientOptions = new RestClientOptions(fullURL){
+                ThrowOnAnyError = true,
+                Timeout = 1000
+            };
 
+            var client = new RestClient(clientOptions);
+
+            var request = new RestRequest();
+            
             //// Execute is deprecated, so we do this to make the node blocking
-            //resultPin.Value = client.ExecuteAsync(request).GetAwaiter().GetResult();
+            resultPin.Value = client.ExecuteAsync(request).GetAwaiter().GetResult();
         }
 
         public void Dispose()

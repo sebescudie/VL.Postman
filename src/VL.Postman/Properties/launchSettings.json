@@ -3,7 +3,7 @@
     "VL.Postman": {
       "commandName": "Executable",
       "executablePath": "C:\\Program Files\\vvvv\\vvvv_gamma_2021.4.6-0809-g2ad7d96360\\vvvv.exe",
-      "commandLineArgs": "-o \"D:\\documents\\dev\\vvvv\\libraries\\VL.Postman\\help\\HowTo Use a Postman collection.vl\" --package-repositories \"D:\\documents\\dev\\libraries\""
+      "commandLineArgs": "-o \"D:\\documents\\dev\\libraries\\VL.Postman\\help\\HowTo Use a Postman collection.vl\" --package-repositories \"D:\\documents\\dev\\libraries\""
     }
   }
 }

@@ -20,6 +20,7 @@ Global
 		{BD92D23C-787A-46B1-A266-AAF573A456DB}.Debug|Any CPU.ActiveCfg = Release|Any CPU
 		{BD92D23C-787A-46B1-A266-AAF573A456DB}.Debug|Any CPU.Build.0 = Release|Any CPU
 		{BD92D23C-787A-46B1-A266-AAF573A456DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD92D23C-787A-46B1-A266-AAF573A456DB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
