@@ -15,3 +15,11 @@ Here comes VL.Postman : simply export your Collection as JSON, put it in a `post
 ## How
 
 Under the hood, the nodes use the RestSharp library. For each node, you get a RestResponse output that you can then use with all the nodes the nuget provides.
+
+## Current status
+
+This is still a POC with quite some limitations :
+
+- No Body input
+- Only does GET requests for now
+- Might not play well if you're using Environment variables in Postman
